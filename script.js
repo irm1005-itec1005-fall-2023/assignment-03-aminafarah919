@@ -88,8 +88,10 @@ function addToDoItem(text) {
   // Function to remove a todo from the list
 function removeToDoItem(todoId) {
   // Find the index of the todo item with the specified id
-  const index = todoItems.findIndex(todo => todo.id === todoId);
-
+  const index = todoItems.findIndex(function(todo) {
+    return todo.id === todoId;
+  });
+  
   // If the todo item is found, remove it from the array
   if (index !== -1) {
     todoItems.splice(index, 1);
@@ -108,7 +110,10 @@ function removeToDoItem(todoId) {
 // Function to mark a task as completed
 function markToDoItemAsCompleted(todoId) {
   // Find the todo item with the specified id
-  const todo = todoItems.find(todo => todo.id === todoId);
+  const todo = todoItems.find(function(todo) {
+    return todo.id === todoId;
+  });
+  
   // If the todo item is found, set its completed property to true
   if (todo) {
     todo.completed = true;
@@ -196,5 +201,3 @@ console.log(todoItems); // Displays the updated todo list
 
 clearCompletedTasks(); // Clears all completed tasks
 console.log(todoItems); // Displays the updated todo list
-
-
